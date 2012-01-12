@@ -301,6 +301,11 @@ function vojo_cdh_juarez_feature_views_default_views() {
   $handler->display->display_options['fields']['body']['element_default_classes'] = 0;
   $handler->display->display_options['fields']['body']['hide_empty'] = 0;
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
+  /* Sort criterion: Node: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Filter: Node: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -472,6 +477,112 @@ function vojo_cdh_juarez_feature_views_default_views() {
   $handler->display->display_options['menu']['title'] = 'Submit';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'menu-cdhjuarez';
+
+  /* Display: Juarez Unpublished Story List Page */
+  $handler = $view->new_display('page', 'Juarez Unpublished Story List Page', 'cdhj_unpublished_story_list_page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Unpublished Stories';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    4 => 4,
+    8 => 8,
+  );
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'mini';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '21';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Node: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  /* Field: Node: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'node_revisions';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '150';
+  $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = 0;
+  $handler->display->display_options['fields']['body']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['body']['empty_zero'] = 0;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Argument: Organic groups: Groups */
+  $handler->display->display_options['arguments']['group_nid']['id'] = 'group_nid';
+  $handler->display->display_options['arguments']['group_nid']['table'] = 'og_ancestry';
+  $handler->display->display_options['arguments']['group_nid']['field'] = 'group_nid';
+  $handler->display->display_options['arguments']['group_nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['group_nid']['style_plugin'] = 'default_summary';
+  $handler->display->display_options['arguments']['group_nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['group_nid']['default_argument_options']['argument'] = '10014';
+  $handler->display->display_options['arguments']['group_nid']['validate_type'] = 'node';
+  $handler->display->display_options['arguments']['group_nid']['validate_options']['types'] = array(
+    'group' => 'group',
+  );
+  $handler->display->display_options['arguments']['group_nid']['validate_options']['access'] = 0;
+  $handler->display->display_options['arguments']['group_nid']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['group_nid']['not'] = 0;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter: Node: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'blog' => 'blog',
+  );
+  /* Filter: Node: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '0';
+  $handler->display->display_options['path'] = 'cdh-juarez/unpublished';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Unpublished';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-cdhjuarez';
   $translatables['cdhj_group_pages'] = array(
     t('Defaults'),
     t('About'),
@@ -492,6 +603,8 @@ function vojo_cdh_juarez_feature_views_default_views() {
     t('Text area'),
     t('Juarez Story Submit Page'),
     t('Submit'),
+    t('Juarez Unpublished Story List Page'),
+    t('Unpublished Stories'),
   );
 
   $views[$view->name] = $view;
