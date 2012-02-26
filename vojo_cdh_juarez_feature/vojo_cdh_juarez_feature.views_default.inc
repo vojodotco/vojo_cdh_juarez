@@ -213,8 +213,8 @@ function vojo_cdh_juarez_feature_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['path'] = 'cdh-juarez/map';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Map';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['title'] = 'Mapa';
+  $handler->display->display_options['menu']['weight'] = '50';
   $handler->display->display_options['menu']['name'] = 'menu-cdhjuarez';
   $translatables['cdhj_all_stories'] = array(
     t('Defaults'),
@@ -353,8 +353,8 @@ function vojo_cdh_juarez_feature_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['path'] = 'cdh-juarez/about';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'About';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['title'] = '¿Que Son Crónicas?';
+  $handler->display->display_options['menu']['weight'] = '20';
   $handler->display->display_options['menu']['name'] = 'menu-cdhjuarez';
 
   /* Display: Juarez Story List Page */
@@ -453,8 +453,8 @@ function vojo_cdh_juarez_feature_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['path'] = 'cdh-juarez/browse';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Browse';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['title'] = 'Navegar';
+  $handler->display->display_options['menu']['weight'] = '40';
   $handler->display->display_options['menu']['name'] = 'menu-cdhjuarez';
 
   /* Display: Juarez Story Submit Page */
@@ -464,7 +464,7 @@ function vojo_cdh_juarez_feature_views_default_views() {
   $handler->display->display_options['path'] = 'cdh-juarez/submit';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Submit';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['weight'] = '30';
   $handler->display->display_options['menu']['name'] = 'menu-cdhjuarez';
 
   /* Display: Juarez Unpublished Story List Page */
@@ -569,8 +569,8 @@ function vojo_cdh_juarez_feature_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '0';
   $handler->display->display_options['path'] = 'cdh-juarez/unpublished';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Unpublished';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['title'] = 'Moderar';
+  $handler->display->display_options['menu']['weight'] = '60';
   $handler->display->display_options['menu']['name'] = 'menu-cdhjuarez';
   $translatables['cdhj_group_pages'] = array(
     t('Defaults'),
