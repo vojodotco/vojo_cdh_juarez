@@ -318,87 +318,6 @@ function vojo_cdh_juarez_feature_default_panels_mini() {
   $mini = new stdClass;
   $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
   $mini->api_version = 1;
-  $mini->name = 'cdhj_group_content_recent_invitation';
-  $mini->category = 'CDH Juarez';
-  $mini->admin_title = 'CDH Juarez Recent / Invitation Pane';
-  $mini->admin_description = '';
-  $mini->requiredcontexts = array(
-    0 => array(
-      'name' => 'node',
-      'id' => 1,
-      'identifier' => 'Group Node',
-      'keyword' => 'group_node',
-    ),
-  );
-  $mini->contexts = array();
-  $mini->relationships = array();
-  $display = new panels_display;
-  $display->layout = 'onecol';
-  $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'middle' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
-    $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'CDH Juarez Invitation',
-      'title' => '',
-      'body' => '<?php global $language; ?>
-<div class="cdhj-large-button">
-    <a href="/<?php print $language->prefix; ?>/cdh-juarez/submit"><?php print t(\'Tell Your Story\')?></a> 
-</div>',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'cdhj_all_stories-cdhj_stories_pane';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => 'cdhj-home-recent',
-      'css_class' => 'cdhj-sidebar-panel',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['middle'][1] = 'new-2';
-  $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = 'new-2';
-  $mini->display = $display;
-  $export['cdhj_group_content_recent_invitation'] = $mini;
-
-  $mini = new stdClass;
-  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
-  $mini->api_version = 1;
   $mini->name = 'cdhj_group_content_summary';
   $mini->category = 'CDH Juarez';
   $mini->admin_title = 'CDH Juarez Group Map / Recent Pane';
@@ -626,7 +545,11 @@ function vojo_cdh_juarez_feature_default_panels_mini() {
     $pane->configuration = array(
       'admin_title' => 'cdhj_story_count_pane',
       'title' => '',
-      'body' => 'This year <em><?php print vojo_group_published_story_count(10054)?></em> people saw something and said something',
+      'body' => '<?php
+$text = t("This year <em>@story_count</em> people saw something and said something", array(\'@story_count\' => vojo_group_published_story_count(10054) ) );
+print $text;
+?>
+',
       'format' => '4',
       'substitute' => TRUE,
     );
