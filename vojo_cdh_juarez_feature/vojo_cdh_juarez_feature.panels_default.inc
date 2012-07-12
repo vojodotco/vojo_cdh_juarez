@@ -512,29 +512,17 @@ function vojo_cdh_juarez_feature_default_panels_mini() {
   $mini = new stdClass;
   $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
   $mini->api_version = 1;
-  $mini->name = 'cdhj_group_page_feature';
+  $mini->name = 'cdhj_group_page_feature_new';
   $mini->category = 'CDH Juarez';
   $mini->admin_title = 'CDHJ Group Page Feature';
-  $mini->admin_description = 'The featured video and other info for the Crónicas de Héroes Juárez group page.';
-  $mini->requiredcontexts = array(
-    0 => array(
-      'name' => 'node',
-      'id' => 1,
-      'identifier' => 'Group',
-      'keyword' => 'group',
-    ),
-  );
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
   $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display;
   $display->layout = 'onecol';
   $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'middle' => NULL,
-    ),
-  );
+  $display->panel_settings = array();
   $display->cache = array();
   $display->title = '';
   $display->content = array();
@@ -551,16 +539,11 @@ function vojo_cdh_juarez_feature_default_panels_mini() {
       'title' => '',
       'body' => '<iframe width="420" height="315" src="http://www.youtube.com/embed/aVherIcdA_M" frameborder="0" allowfullscreen></iframe>',
       'format' => '2',
-      'substitute' => 1,
+      'substitute' => TRUE,
     );
     $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'sixcol',
-    );
+    $pane->style = array();
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $display->content['new-1'] = $pane;
@@ -577,21 +560,16 @@ function vojo_cdh_juarez_feature_default_panels_mini() {
       'override_title_text' => 'Blog',
     );
     $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'sixcol last',
-    );
+    $pane->style = array();
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
     $display->content['new-2'] = $pane;
     $display->panels['middle'][1] = 'new-2';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $mini->display = $display;
-  $export['cdhj_group_page_feature'] = $mini;
+  $export['cdhj_group_page_feature_new'] = $mini;
 
   $mini = new stdClass;
   $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
